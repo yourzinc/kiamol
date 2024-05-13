@@ -1,14 +1,17 @@
-apiVersion: networking.k8s.io/v1beta1 
+apiVersion: networking.k8s.io/v1 
 kind: Ingress
 metadata:
   name: hello-kiamol
   labels:
     kiamol: ch15
+  annotations:
+    kubernetes.io/ingress.class: "nginx"  
 spec:
   rules:
   - http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: hello-kiamol
-          servicePort: 80
+          service.name: hello-kiamol
+          service.port.number: 80
