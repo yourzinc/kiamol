@@ -10,6 +10,9 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80

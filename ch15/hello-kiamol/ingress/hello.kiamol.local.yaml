@@ -8,11 +8,13 @@ metadata:
     kubernetes.io/ingress.class: "nginx" 
 spec:
   rules:
-  - host: hello.kiamol.local
+  - host: hello.kiamol.local  # 라우팅 규칙의 적용 범위를 특정 도메인에 대한 요청으로 제한
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
-          service.name: hello-kiamol
-          service.port.number: 80
+          service:
+            name: hello-kiamol  # 해당 도메인에 대한 모든 요청은 hello-kiamol 서비스에서 처리
+            port:
+              number: 80

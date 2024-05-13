@@ -9,23 +9,31 @@ spec:
   - host: todo.kiamol.local
     http:
       paths:
-      - pathType: Exact
-        path: /
+      - path: /
+        pathType: Exact   
         backend:
-          service.name: todo-web
-          service.port.number: 80 
-      - pathType: Exact
-        path: /list
+          service:
+            name: todo-web
+            port:
+              number: 80
+      - path: /list
+        pathType: Exact
         backend:
-          service.name: todo-web
-          service.port.number: 80
-      - pathType: Exact
-        path: /new
+          service:
+            name: todo-web
+            port:
+              number: 80
+      - path: /new
+        pathType: Exact
         backend:
-          service.name: todo-web
-          service.port.number: 80
-      - pathType: Prefix
-        path: /static
+          service:
+            name: todo-web
+            port:
+              number: 80
+      - path: /static
+        pathType: Prefix
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80

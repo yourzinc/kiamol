@@ -10,6 +10,9 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          service.name: pi-web
-          service.port.number: 80
+          service:
+            name: pi-web
+            port:
+              number: 80
