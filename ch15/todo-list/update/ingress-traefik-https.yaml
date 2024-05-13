@@ -14,9 +14,12 @@ spec:
     http:
       paths:
       - path: /new
+        pathType: Exact
         backend:
-          service.name: todo-web-sticky
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
   tls:
    - secretName: kiamol-cert
 ---
@@ -36,9 +39,12 @@ spec:
     http:
       paths:
       - path: /static
+        pathType: Prefix
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
   tls:
    - secretName: kiamol-cert
 ---
@@ -58,12 +64,18 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Exact
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
       - path: /list
+        pathType: Exact
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
   tls:
    - secretName: kiamol-cert

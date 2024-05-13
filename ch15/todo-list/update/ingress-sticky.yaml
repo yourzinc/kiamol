@@ -12,8 +12,10 @@ spec:
       - pathType: Exact
         path: /new
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1 
 kind: Ingress
@@ -33,8 +35,10 @@ spec:
       - pathType: Prefix
         path: /static
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1 
 kind: Ingress
@@ -48,10 +52,14 @@ spec:
       - pathType: Exact
         path: /
         backend:
-          service.name: todo-web
-          service.port.number: 80 
+          service:
+            name: todo-web
+            port:
+              number: 80
       - pathType: Exact
         path: /list
         backend:
-          service.name: todo-web
-          service.port.number: 80
+          service:
+            name: todo-web
+            port:
+              number: 80
